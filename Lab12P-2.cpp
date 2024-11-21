@@ -21,11 +21,15 @@ int main() {
 		return 1;
 	}
 	while (inputFile >> word) {
-		wordCount++;
+		bool contaningLetter = false;
 		for (int i = 0; i < word.length(); i++) { // loops through each character
-			if (word[i] != ' ' && word[i] != '\n' && word[i] != '\t') { // if doesnt equal space, or tab it is a character
+			if (isCap(word[i])) {
 				charCount++;
+				contaningLetter = true;
 			}
+		}
+		if (contaningLetter) {
+			wordCount++;
 		}
 	}
 	cout << "Words: " << wordCount << endl;
